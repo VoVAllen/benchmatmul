@@ -4,21 +4,21 @@ extern crate blas_src;
 
 fn main() {
     // Initialize OpenBLAS thread count (optional but recommended)
+    let num_centroid: usize = 4096;
     println!("Running matrix multiplication benchmark...\n");
-    println!("Format: (i x 768) * (768 x 4096)");
-    println!("i\tTime (ms)");
-    println!("-----------------");
+    println!("Format: (i x 768) * (768 x {num_centroid})");
+    println!("i\tTime (ms)\tTime/i (ms/row)");
+    println!("-----------------------------------");
     
-
     // Generate the second matrix (768 x 4096) once
-    let b = Array2::<f64>::ones((768, 16384));
+    let b = Array2::<f64>::ones((768, num_centroid));
 
     // First benchmark with i = 1
     let i = 1;
     benchmark_size(i, &b);
 
     // Then benchmark for i = 16, 32, ..., 256
-    for i in (16..=1024).step_by(64) {
+    for i in (32..=1024).step_by(32) {
         benchmark_size(i, &b);
     }
 }
