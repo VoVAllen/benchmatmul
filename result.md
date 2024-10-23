@@ -4,7 +4,7 @@ On m7i
 ```
 OPENBLAS_NUM_THREADS=1 cargo run
 ```
-
+```
 Format: (i x 768) * (768 x 4096)
 i       Time (ms)       Time/i (ms/row)
 -----------------------------------
@@ -48,9 +48,11 @@ i       Time (ms)       Time/i (ms/row)
 448     174.75          0.3901
 480     186.67          0.3889
 512     199.63          0.3899
+```
 
 # Multi thread
 
+```
 Format: (i x 768) * (768 x 16384)
 i       Time (ms)       Time/i (ms/row)
 -----------------------------------
@@ -125,3 +127,4 @@ i       Time (ms)       Time/i (ms/row)
 960     21.62           0.0225
 992     23.58           0.0238
 1024    28.98           0.0283
+```
